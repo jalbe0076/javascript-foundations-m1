@@ -45,7 +45,7 @@ Completing all of these test suites is not necessary, but you should be working 
 - [X] 🧚 ‍[Mythical Creatures](./mythical-creatures)
 - [X] ✈️ [Airport](./airport)
 - [X] 🎧 [DJ](./dj)
-- [ ] 🍔 [Favorite Foods](./favorite-foods)
+- [X] 🍔 [Favorite Foods](./favorite-foods)
 - [ ] 🎮 [Video Games](./video-games/)
 - [X] 🎂 [Birthdays](./birthdays)
 - [X] 🗓 [Calendar](./calendar/)
