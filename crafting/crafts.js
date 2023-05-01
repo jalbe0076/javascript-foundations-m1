@@ -7,18 +7,16 @@ function createMaterial(name, unit, costPerUnit) {
 }
 
 function calculateMaterialCost(material, totalUnits) {
-  var totalCost = totalUnits * material.costPerUnit;
+  const totalCost = totalUnits * material.costPerUnit;
   return `${totalUnits} ${material.unit}s of ${material.name} costs $${totalCost}.`;
 }
 
 function createSupplyCloset(material) {
-  var myCloset = {
+  const myCloset = {
     supplies: [] || []
   };
   if (material) {
-    for (var i = 0; i < material.length; i++) {
-      myCloset.supplies[i] = material[i].name;
-    }
+    material.forEach(material => myCloset.supplies.push(material.name));
   }
   return myCloset;
 }
@@ -40,12 +38,19 @@ function createNewProject(material, status) {
 }
 
 function compareMaterials(project, materials) {
-  for (var i = 0; i < project.materialsNeeded.length; i++) {
-    if (!materials.supplies.includes(project.materialsNeeded[i].name)) {
+    let materialMissing = false;
+
+    project.materialsNeeded.forEach(material => {
+      if (!materials.supplies.includes(material.name)) {
+        return materialMissing = true;
+      }
+    });
+
+    if (materialMissing) {
       return 'Oh no! You need to go shopping before you can start this project!';
+    } else {
+      return `Yay! You can start this project!`;
     }
-  }
-  return `Yay! You can start this project!`;
 }
 
 module.exports = {
